@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class webElements {
+public class MultiSelectandDropdown {
 	
 	WebDriver driver;
 	String baseUrl;
@@ -24,7 +24,7 @@ public class webElements {
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.gecko.driver", "/Users/gursimransingh/Documents/workspace/geckodriver");
 		driver = new FirefoxDriver();
-		baseUrl = "http://us.makemytrip.com/";
+		baseUrl = "https://www.expedia.ca/?rfrr=Redirect.From.www.expedia.com%2F";
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
@@ -33,23 +33,10 @@ public class webElements {
 
 	@Test
 	public void test() throws InterruptedException {
-		List<WebElement> elements = driver.findElements(By.xpath("//p[@id = 'trip_type']//label"));
-		//System.out.println(e);	
-		System.out.println(elements.size());
-		//elements.get(2).click();
 		
+		Select sel = new Select (driver.findElement(By.id("hotel-1-adults")));
+		sel.selectByValue("6");
 		
-		for(int i=0;i<elements.size();i++){
-			
-			boolean ischecked;
-			ischecked = elements.get(i).isSelected();
-			
-			if(ischecked==false){
-			elements.get(i).click();
-			Thread.sleep(2000);
-			}
-		}
-	
 	}
 	
 	@After
