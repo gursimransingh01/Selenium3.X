@@ -1,5 +1,6 @@
 package simpleTestCasesOnBrowsers;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,6 +15,7 @@ public class ChromeTest {
 		String baseURL = "http://www.google.com";
 		
 		driver.get(baseURL);
+
 		
 	}
 
